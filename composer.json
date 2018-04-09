@@ -9,10 +9,12 @@
     "require": {
         "silverstripe/cms": "^4",
         "silverstripe/framework": "^4",
-        "dnadesign/silverstripe-elemental": "2.x-dev",
-        "dnadesign/silverstripe-elemental-list": "^1.0@dev"
+        "silverstripe/vendor-plugin": "^1.0"
     },
     "extra": {
-        "installer-name": "news-addons"
+        "installer-name": "news-addons",
+        "expose": [
+            "javascript"
+        ]
     }
 }
