@@ -22,7 +22,7 @@ class NewsListingPageController extends PageController
 	public function news() {
 
         Requirements::javascript('resources/silverstripe/admin/thirdparty/jquery/jquery.js');
-        Requirements::javascript('mysite/code/assets/js/news.js');
+        Requirements::javascript('evanshunt/news-addons:javascript/news.js');
 
 		$news = NewsItem::get();
 
