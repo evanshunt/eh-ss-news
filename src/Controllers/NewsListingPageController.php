@@ -1,6 +1,6 @@
 <?php
 
-namespace EH;
+namespace EvansHunt;
 
 use PageController;
 use SilverStripe\Forms\DateField;

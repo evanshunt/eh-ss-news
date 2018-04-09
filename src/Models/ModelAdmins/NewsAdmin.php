@@ -1,13 +1,13 @@
 <?php
 
-namespace EH;
+namespace EvansHunt;
 
 use SilverStripe\Admin\ModelAdmin;
 
 class NewsAdmin extends ModelAdmin {
 
     private static $managed_models = [
-        'EH\NewsItem'
+        'EvansHunt\NewsItem'
     ];
 
     private static $url_segment = 'news';

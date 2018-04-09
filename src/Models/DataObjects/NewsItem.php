@@ -1,6 +1,6 @@
 <?php
 
-namespace EH;
+namespace EvansHunt;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;

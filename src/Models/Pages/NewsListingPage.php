@@ -1,6 +1,6 @@
 <?php
 
-namespace EH;
+namespace EvansHunt;
 
 use Page;
 use SilverStripe\ORM\Queries\SQLSelect;
