@@ -19,16 +19,15 @@ class NewsListingPageController extends PageController
         parent::init();
     }
 
-	public function news() {
+    public function news() {
 
-        Requirements::javascript('resources/silverstripe/admin/thirdparty/jquery/jquery.js');
         Requirements::javascript('evanshunt/news-addons:javascript/news.js');
 
-		$news = NewsItem::get();
+        $news = NewsItem::get();
 
-		$year = $this->getYear();
+        $year = $this->getYear();
 
-		if ($year) {
+        if ($year) {
 
             $news = $news->filter(
                 [
@@ -37,10 +36,10 @@ class NewsListingPageController extends PageController
                 ]
             );
 
-		}
+        }
 
-		return $news;
-	}
+        return $news;
+    }
 
     public function years() {
         $year = $this->getYear();
