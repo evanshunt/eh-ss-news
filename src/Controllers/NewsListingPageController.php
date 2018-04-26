@@ -6,7 +6,6 @@ use PageController;
 use SilverStripe\Forms\DateField;
 use SilverStripe\View\Requirements;
 
-
 class NewsListingPageController extends PageController
 {
     private static $allowed_actions = [
@@ -76,14 +75,12 @@ class NewsListingPageController extends PageController
             $backUrl = '<a href="' . $backUrl . '">Back</a>';
         }
 
-        $content = $newsItem->getField('Content');
-        $content = '<span class="publishedDate">Published: ' . $date . '</span>' . $content;
-        $content.= $backUrl;
+        // setup updated newsItem Content
+        $newsItem->Content = '<span class="publishedDate">Published: ' . $date . '</span>' . $newsItem->getField('Content') . $backUrl;
 
-        // set content field which is rendered in template
-        $newsItem->setField('Content', $content);
+        // set news item into array which is rendered in template and return this array
+        $returnArr = ['NewsItem' => $newsItem];
 
-        // return news item and render with Page
-        return $newsItem->renderWith('Page');
+        return $returnArr;
     }
 }
