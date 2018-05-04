@@ -9,7 +9,8 @@ jQuery.noConflict();
 
     function initSelectChange() {
         $('select#publishYear').on('change', function() {
-            $(this).parent().submit();
+            var form = $(this).parents('form:first');
+            form.submit();
         });
     }
 

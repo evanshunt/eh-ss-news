@@ -26,12 +26,25 @@ class NewsListingPageController extends PageController
 
         $year = $this->getYear();
 
+        $searchTerm = $this->getSearchTerm();
+
         if ($year) {
 
             $news = $news->filter(
                 [
                     'Date:GreaterThan' => $year . '-1-1 00:00:00',
                     'Date:LessThan' => $year . '-12-31 23:59:59'
+                ]
+            );
+
+        }
+
+        if ($searchTerm) {
+
+            $news = $news->filterAny(
+                [
+                    'Title:PartialMatch' => $searchTerm,
+                    'Content:PartialMatch' => $searchTerm
                 ]
             );
 
@@ -52,6 +65,10 @@ class NewsListingPageController extends PageController
 	public function getYear() {
 		return $this->getRequest()->getVar('publishYear');
 	}
+
+    public function getSearchTerm() {
+        return $this->getRequest()->getVar('searchTerm');
+    }
 
     public function detail($request) {
 

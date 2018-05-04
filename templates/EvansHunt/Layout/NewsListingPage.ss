@@ -1,22 +1,21 @@
-This is [ NewsListingPage.ss ] template file <br />
-
-
 <section class="content-wrapper">
 
     $Content
 
 </section>
 
-<section class="year-filter">
+<section class="news-search-filter">
 
-    <% if $Years %>
-
-        <hr />
-        <form method="GET" action="$Link#newslisting">
+    <hr />
+    <form method="GET" action="$Link#newslisting">
+        <div class="years-filter">
             $Years
-        </form>
-
-    <% end_if %>
+        </div>
+        <div class="search-filter">
+            <input type="text" name="searchTerm" value="$searchTerm" placeholder="Enter Search Term">
+            <button class="button">Search</button>
+        </div>
+    </form>
 
 </section>
 
