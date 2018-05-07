@@ -1,6 +1,12 @@
+<div class="news-banner">
+  <div class="row-wrap">
+    <span class="news-banner-title">News</span>
+  </div><!-- /.row-wrap -->
+</div><!-- /.news-banner -->
+
 <section class="content-wrapper">
   <div class="row-wrap">
-    <h1>$Title</h1>
+    <h1 class="news-title">$Title</h1>
     <div class="content">
       $Content
     </div>
@@ -36,7 +42,6 @@
             <a href="{$Top.Link}detail/$Link" class="news-read-more text-link">READ MORE</a>
           </div><!-- /.bottom-news -->
         </div>
-        <hr />
       <% end_loop %>
     </div>
   </div><!-- /.row-wrap -->
