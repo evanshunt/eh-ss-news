@@ -35,12 +35,25 @@ class NewsItem extends DataObject
         'Title'
     ];
 
+    private static $items_per_page = 12; // default show 12 items, so it works reponsive for multiple columns (4x3 , 3x4, 2x6, 1x12)
+
     public static function getTableName() {
         return NewsItem::$table_name;
+    }
+
+    public static function getItemsPerPage() {
+        return NewsItem::$items_per_page;
     }
 
     public function Link()
     {
         return $this->ID . '/' . SiteTree::create()->generateURLSegment($this->Date . ' ' . $this->Title);
+    }
+
+    public function getPageNumber($position) {
+        // position in SS starts with 1 not 0 I believe
+
+        // return calculated page number start from 1
+        return ceil($position/self::getItemsPerPage());
     }
 }

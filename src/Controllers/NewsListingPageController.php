@@ -5,6 +5,8 @@ namespace EvansHunt;
 use PageController;
 use SilverStripe\Forms\DateField;
 use SilverStripe\View\Requirements;
+use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Control\HTTPRequest;
 
 class NewsListingPageController extends PageController
 {
@@ -18,7 +20,7 @@ class NewsListingPageController extends PageController
         parent::init();
     }
 
-    public function news() {
+    public function index(HTTPRequest $request) {
 
         Requirements::javascript('evanshunt/news-addons:javascript/news.js');
 
@@ -50,7 +52,25 @@ class NewsListingPageController extends PageController
 
         }
 
-        return $news;
+        // add sort by date DESC
+        $news = $news->Sort('Date', 'DESC');
+
+        // use paginated list to get load more feature working
+        $paginatedResults = PaginatedList::create(
+            $news,
+            $request
+        )->setPageLength(NewsItem::getItemsPerPage());
+
+        if($request->isAjax()) {
+            return $this->customise([
+                'NewsResults' => $paginatedResults
+            ])->renderWith('EvansHunt/Layout/NewsListingResults');
+        }
+
+        return [
+            'NewsResults' => $paginatedResults
+        ];
+
     }
 
     public function years() {

@@ -32,17 +32,9 @@
 <section class="news news-buckets">
   <div class="row-wrap">
     <div class="news-buckets-holder">
-      <% loop $news.Sort(Date).Reverse %>
-        <div class="news-item news-bucket">
-          <div class="top-news">
-            <span class="news-date">$Date.Month $Date.DayOfMonth, $Date.Year</span>
-            <h4 class="news-title"><a href="{$Top.Link}detail/$Link">$Title</a></h4>
-          </div><!-- /.top-news -->
-          <div class="bottom-news">
-            <a href="{$Top.Link}detail/$Link" class="news-read-more text-link">READ MORE</a>
-          </div><!-- /.bottom-news -->
-        </div>
-      <% end_loop %>
+
+      <% include EvansHunt/Layout/NewsListingResults %>
+
     </div>
   </div><!-- /.row-wrap -->
 </section><!-- /.news -->
