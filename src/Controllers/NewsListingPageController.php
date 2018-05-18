@@ -109,7 +109,7 @@ class NewsListingPageController extends PageController
         $urlSegment = $this->getField('URLSegment');
         if (!empty($refer) && strpos($refer, $urlSegment)) {
             $backUrl = htmlspecialchars($refer);
-            $backUrl = '<a href="' . $backUrl . '">Back</a>';
+            $backUrl = '<a href="' . $backUrl . '" class="back-btn">Back</a>';
         }
 
         // setup updated newsItem Content
