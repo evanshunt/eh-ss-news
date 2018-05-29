@@ -104,13 +104,8 @@ class NewsListingPageController extends PageController
         $date = strtotime($newsItem->getField('Date'));
         $date = date('l, F jS, Y', $date);
 
-        $backUrl = '';
-        $refer = $this->getReferer();
         $urlSegment = $this->getField('URLSegment');
-        if (!empty($refer) && strpos($refer, $urlSegment)) {
-            $backUrl = htmlspecialchars($refer);
-            $backUrl = '<a href="' . $backUrl . '" class="back-btn">Back</a>';
-        }
+        $backUrl = '<a href="' . $urlSegment . '" class="back-btn">Back</a>';
 
         // setup updated newsItem Content
         $newsItem->Content = '<span class="publishedDate">Published: ' . $date . '</span>' . $newsItem->getField('Content') . $backUrl;
